@@ -1,429 +1,570 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Vincenzo Marco De Luca — PhD student in Information Engineering and Computer Science. Research in Graph Neural Networks, Computational Social Science and AI for Healthcare.">
+
+  <meta
+    name="description"
+    content="Vincenzo Marco De Luca — PhD student in Information Engineering and Computer Science. Research in Graph Neural Networks, Computational Social Science and AI for Healthcare."
+  >
+
   <title>Vincenzo Marco De Luca — AI Researcher</title>
 
   <style>
-    :root{
-      --bg:#f7f6f2;
-      --paper:#fff;
-      --ink:#171717;
-      --muted:#66635d;
-      --line:#d9d6cf;
-      --accent:#3f5148;
-      --accent2:#b86b3d;
-      --max:1120px;
+
+    :root {
+      --bg: #f7f6f2;
+      --paper: #fff;
+      --ink: #171717;
+      --muted: #66635d;
+      --line: #d9d6cf;
+      --accent: #3f5148;
+      --accent2: #b86b3d;
+      --max: 1120px;
+
       --serif: Georgia, "Times New Roman", serif;
-      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-    *{
-      box-sizing:border-box
+    * {
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--ink);
-      font-family:var(--sans);
-      line-height:1.65
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.65;
     }
 
-    a{
-      color:inherit
+    a {
+      color: inherit;
     }
 
-    .wrap{
-      width:min(calc(100% - 40px),var(--max));
-      margin:auto
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: auto;
     }
 
-    header{
-      padding:34px 0 0
+    header {
+      padding: 34px 0 0;
     }
 
-    .top{
-      display:flex;
-      justify-content:space-between;
-      gap:30px;
-      align-items:flex-start
+    .top {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: flex-start;
     }
 
-    .brand{
-      font-family:var(--serif);
-      font-size:24px;
-      font-weight:600;
-      letter-spacing:-.02em
+    .brand {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
     }
 
-    .status{
-      font-size:13px;
-      color:var(--muted);
-      text-align:right
+    .status {
+      font-size: 13px;
+      color: var(--muted);
+      text-align: right;
     }
 
-    nav{
-      margin-top:34px;
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      display:flex;
-      gap:25px;
-      overflow:auto;
-      white-space:nowrap
+    nav {
+      margin-top: 34px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      gap: 25px;
+      overflow: auto;
+      white-space: nowrap;
     }
 
-    nav a{
-      padding:13px 0;
-      text-decoration:none;
-      font-size:13px;
-      color:#3e3c38
+    nav a {
+      padding: 13px 0;
+      text-decoration: none;
+      font-size: 13px;
+      color: #3e3c38;
     }
 
-    nav a:hover{
-      color:var(--accent2)
+    nav a:hover {
+      color: var(--accent2);
     }
 
-    .hero{
-      padding:92px 0 78px;
-      display:grid;
-      grid-template-columns:1.35fr .65fr;
-      gap:70px
+    /* =========================
+       HERO
+       ========================= */
+
+    .hero {
+      padding: 92px 0 78px;
+
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 70px;
     }
 
-    h1{
-      font-family:var(--serif);
-      font-size:clamp(48px,7vw,86px);
-      line-height:.98;
-      letter-spacing:-.055em;
-      margin:0 0 30px;
-      font-weight:500
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(48px, 7vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+      margin: 0 0 30px;
+      font-weight: 500;
     }
 
-    .lead{
-      font-size:21px;
-      line-height:1.55;
-      max-width:760px;
-      color:#30302e
+    .lead {
+      font-size: 21px;
+      line-height: 1.55;
+      max-width: 760px;
+      color: #30302e;
     }
 
-    .meta{
-      margin-top:32px;
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px
+    .meta {
+      margin-top: 32px;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .pill{
-      border:1px solid var(--line);
-      padding:7px 11px;
-      border-radius:999px;
-      font-size:12px;
-      color:#55524c;
-      background:rgba(255,255,255,.35)
+    .pill {
+      border: 1px solid var(--line);
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: #55524c;
+      background: rgba(255, 255, 255, 0.35);
     }
 
-    .hero-side{
-      align-self:end;
-      border-left:2px solid var(--accent);
-      padding-left:22px
+    /* =========================
+       PROFILE PHOTO
+       ========================= */
+
+    .hero-side {
+      align-self: end;
+
+      border-left: 2px solid var(--accent);
+
+      padding-left: 22px;
     }
 
-    /* Profile photo */
-    .profile-photo{
-      width:190px;
-      height:190px;
-      object-fit:cover;
-      border-radius:50%;
-      display:block;
-      margin-bottom:25px;
-      border:1px solid var(--line);
+    .profile-photo {
+      width: 190px;
+      height: 190px;
+
+      object-fit: cover;
+
+      border-radius: 50%;
+
+      display: block;
+
+      margin-bottom: 25px;
+
+      border: 1px solid var(--line);
     }
 
-    .hero-side strong{
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:.13em
+    .hero-side strong {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
     }
 
-    .hero-side p{
-      margin:8px 0 0;
-      color:var(--muted);
-      font-size:14px
+    .hero-side p {
+      margin: 8px 0 0;
+
+      color: var(--muted);
+
+      font-size: 14px;
     }
 
-    .graph{
-      margin-top:28px;
-      position:relative;
-      height:150px
+    /* =========================
+       GRAPH
+       ========================= */
+
+    .graph {
+      margin-top: 28px;
+
+      position: relative;
+
+      height: 150px;
     }
 
-    .graph svg{
-      width:100%;
-      height:100%
+    .graph svg {
+      width: 100%;
+      height: 100%;
     }
 
-    section{
-      padding:72px 0;
-      border-top:1px solid var(--line)
+    /* =========================
+       SECTIONS
+       ========================= */
+
+    section {
+      padding: 72px 0;
+
+      border-top: 1px solid var(--line);
     }
 
-    .section-grid{
-      display:grid;
-      grid-template-columns:220px 1fr;
-      gap:55px
+    .section-grid {
+      display: grid;
+
+      grid-template-columns: 220px 1fr;
+
+      gap: 55px;
     }
 
-    .kicker{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:.16em;
-      color:var(--muted);
-      position:sticky;
-      top:20px;
-      height:max-content
+    .kicker {
+      font-size: 12px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.16em;
+
+      color: var(--muted);
+
+      position: sticky;
+
+      top: 20px;
+
+      height: max-content;
     }
 
-    h2{
-      font-family:var(--serif);
-      font-size:42px;
-      line-height:1.05;
-      letter-spacing:-.035em;
-      font-weight:500;
-      margin:0 0 28px
+    h2 {
+      font-family: var(--serif);
+
+      font-size: 42px;
+
+      line-height: 1.05;
+
+      letter-spacing: -0.035em;
+
+      font-weight: 500;
+
+      margin: 0 0 28px;
     }
 
-    h3{
-      font-family:var(--serif);
-      font-size:24px;
-      line-height:1.2;
-      font-weight:500;
-      margin:0
+    h3 {
+      font-family: var(--serif);
+
+      font-size: 24px;
+
+      line-height: 1.2;
+
+      font-weight: 500;
+
+      margin: 0;
     }
 
-    .text{
-      max-width:780px
+    .text {
+      max-width: 780px;
     }
 
-    .text p{
-      margin:0 0 18px
+    .text p {
+      margin: 0 0 18px;
     }
 
-    .news{
-      display:grid;
-      gap:0
+    /* =========================
+       NEWS
+       ========================= */
+
+    .news {
+      display: grid;
+
+      gap: 0;
     }
 
-    .news-item{
-      display:grid;
-      grid-template-columns:100px 1fr;
-      gap:22px;
-      padding:18px 0;
-      border-top:1px solid var(--line)
+    .news-item {
+      display: grid;
+
+      grid-template-columns: 100px 1fr;
+
+      gap: 22px;
+
+      padding: 18px 0;
+
+      border-top: 1px solid var(--line);
     }
 
-    .news-item:first-child{
-      border-top:0
+    .news-item:first-child {
+      border-top: 0;
     }
 
-    .date{
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.08em
+    .date {
+      font-size: 12px;
+
+      color: var(--muted);
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.08em;
     }
 
-    .item-title{
-      font-weight:600
+    .item-title {
+      font-weight: 600;
     }
 
-    .item-note{
-      color:var(--muted);
-      font-size:14px;
-      margin-top:3px
+    .item-note {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      margin-top: 3px;
     }
 
-    .pub{
-      padding:23px 0;
-      border-top:1px solid var(--line)
+    /* =========================
+       PUBLICATIONS
+       ========================= */
+
+    .pub {
+      padding: 23px 0;
+
+      border-top: 1px solid var(--line);
     }
 
-    .pub:first-child{
-      border-top:0
+    .pub:first-child {
+      border-top: 0;
     }
 
-    .pub-title{
-      font-family:var(--serif);
-      font-size:21px;
-      line-height:1.35
+    .pub-title {
+      font-family: var(--serif);
+
+      font-size: 21px;
+
+      line-height: 1.35;
     }
 
-    .pub-authors{
-      font-size:13px;
-      margin-top:5px
+    .pub-authors {
+      font-size: 13px;
+
+      margin-top: 5px;
     }
 
-    .pub-venue{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:4px
+    .pub-venue {
+      font-size: 13px;
+
+      color: var(--muted);
+
+      margin-top: 4px;
     }
 
-    .pub-tags{
-      display:flex;
-      gap:7px;
-      flex-wrap:wrap;
-      margin-top:10px
+    .pub-tags {
+      display: flex;
+
+      gap: 7px;
+
+      flex-wrap: wrap;
+
+      margin-top: 10px;
     }
 
-    .tag{
-      font-size:11px;
-      border:1px solid var(--line);
-      padding:3px 7px;
-      color:var(--muted);
-      text-decoration:none
+    .tag {
+      font-size: 11px;
+
+      border: 1px solid var(--line);
+
+      padding: 3px 7px;
+
+      color: var(--muted);
+
+      text-decoration: none;
     }
 
-    .timeline{
-      display:grid;
-      gap:0
+    /* =========================
+       EXPERIENCE
+       ========================= */
+
+    .timeline {
+      display: grid;
+
+      gap: 0;
     }
 
-    .entry{
-      display:grid;
-      grid-template-columns:150px 1fr;
-      gap:30px;
-      padding:25px 0;
-      border-top:1px solid var(--line)
+    .entry {
+      display: grid;
+
+      grid-template-columns: 150px 1fr;
+
+      gap: 30px;
+
+      padding: 25px 0;
+
+      border-top: 1px solid var(--line);
     }
 
-    .entry:first-child{
-      border-top:0
+    .entry:first-child {
+      border-top: 0;
     }
 
-    .when{
-      font-size:12px;
-      color:var(--muted)
+    .when {
+      font-size: 12px;
+
+      color: var(--muted);
     }
 
-    .where{
-      font-weight:600;
-      margin-top:2px
+    .where {
+      font-weight: 600;
+
+      margin-top: 2px;
     }
 
-    .sub{
-      font-size:14px;
-      color:var(--muted);
-      margin-top:5px
+    .sub {
+      font-size: 14px;
+
+      color: var(--muted);
+
+      margin-top: 5px;
     }
 
-    .cols{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px
+    /* =========================
+       COLUMNS
+       ========================= */
+
+    .cols {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 50px;
     }
 
-    .list{
-      margin:0;
-      padding:0;
-      list-style:none
+    .list {
+      margin: 0;
+
+      padding: 0;
+
+      list-style: none;
     }
 
-    .list li{
-      padding:12px 0;
-      border-bottom:1px solid var(--line);
-      font-size:14px
+    .list li {
+      padding: 12px 0;
+
+      border-bottom: 1px solid var(--line);
+
+      font-size: 14px;
     }
 
-    .contact{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:50px
+    /* =========================
+       CONTACT
+       ========================= */
+
+    .contact {
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 50px;
     }
 
-    .contact-card{
-      background:var(--paper);
-      border:1px solid var(--line);
-      padding:28px
+    .contact-card {
+      background: var(--paper);
+
+      border: 1px solid var(--line);
+
+      padding: 28px;
     }
 
-    .contact-card a{
-      text-decoration:none;
-      border-bottom:1px solid #aaa
+    .contact-card a {
+      text-decoration: none;
+
+      border-bottom: 1px solid #aaa;
     }
 
-    footer{
-      padding:45px 0 65px;
-      color:var(--muted);
-      font-size:12px;
-      display:flex;
-      justify-content:space-between;
-      gap:20px
+    /* =========================
+       FOOTER
+       ========================= */
+
+    footer {
+      padding: 45px 0 65px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 20px;
     }
 
-    .smallcaps{
-      font-size:11px;
-      letter-spacing:.12em;
-      text-transform:uppercase
+    .smallcaps {
+      font-size: 11px;
+
+      letter-spacing: 0.12em;
+
+      text-transform: uppercase;
     }
 
-    @media(max-width:800px){
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 800px) {
 
       .hero,
       .section-grid,
       .contact,
-      .cols{
-        grid-template-columns:1fr
+      .cols {
+        grid-template-columns: 1fr;
       }
 
-      .hero{
-        padding-top:60px;
-        gap:35px
+      .hero {
+        padding-top: 60px;
+
+        gap: 35px;
       }
 
-      .hero-side{
-        border-left:0;
-        border-top:2px solid var(--accent);
-        padding:20px 0 0
+      .hero-side {
+        border-left: 0;
+
+        border-top: 2px solid var(--accent);
+
+        padding: 20px 0 0;
       }
 
-      .section-grid{
-        gap:20px
+      .section-grid {
+        gap: 20px;
       }
 
-      .kicker{
-        position:static
+      .kicker {
+        position: static;
       }
 
-      .entry{
-        grid-template-columns:1fr;
-        gap:5px
+      .entry {
+        grid-template-columns: 1fr;
+
+        gap: 5px;
       }
 
-      .news-item{
-        grid-template-columns:1fr;
-        gap:5px
+      .news-item {
+        grid-template-columns: 1fr;
+
+        gap: 5px;
       }
 
-      nav{
-        gap:18px
+      nav {
+        gap: 18px;
       }
 
-      footer{
-        flex-direction:column
+      footer {
+        flex-direction: column;
       }
 
-      .profile-photo{
-        width:160px;
-        height:160px;
+      .profile-photo {
+        width: 160px;
+
+        height: 160px;
       }
     }
+
   </style>
 </head>
 
@@ -431,7 +572,12 @@
 
 <div class="wrap">
 
+  <!-- =========================
+       HEADER
+       ========================= -->
+
   <header>
+
     <div class="top">
 
       <div class="brand">
@@ -440,27 +586,45 @@
 
       <div class="status">
         PhD Student · University of Trento<br>
-        Information Engineering & Computer Science
+        Information Engineering &amp; Computer Science
       </div>
 
     </div>
 
     <nav aria-label="Main navigation">
+
       <a href="#about">About</a>
+
       <a href="#news">News</a>
+
       <a href="#research">Research</a>
+
       <a href="#publications">Publications</a>
+
       <a href="#experience">Experience</a>
+
       <a href="#teaching">Teaching</a>
+
       <a href="#contact">Contact</a>
+
     </nav>
+
   </header>
 
 
+  <!-- =========================
+       MAIN
+       ========================= -->
+
   <main>
 
-    <!-- HERO / ABOUT -->
+    <!-- =========================
+         HERO / ABOUT
+         ========================= -->
+
     <section class="hero" id="about">
+
+      <!-- LEFT SIDE -->
 
       <div>
 
@@ -471,20 +635,587 @@
         </h1>
 
         <div class="lead">
-          I am a PhD student in Information Engineering and Computer Science at the University of Trento.
-          My research explores <strong>Graph Neural Networks</strong>,
+
+          I am a PhD student in Information Engineering and
+          Computer Science at the University of Trento.
+
+          My research explores
+          <strong>Graph Neural Networks</strong>,
           <strong>Computational Social Science</strong>,
           and <strong>AI for Healthcare</strong>,
-          with a focus on interpretable and actionable models for human–machine collaboration.
+          with a focus on interpretable and actionable models
+          for human–machine collaboration.
+
         </div>
 
         <div class="meta">
-          <span class="pill">Graph Neural Networks</span>
-          <span class="pill">Explainable AI</span>
-          <span class="pill">Human–AI Teaming</span>
-          <span class="pill">AI for Healthcare</span>
-          <span class="pill">Computational Social Science</span>
+
+          <span class="pill">
+            Graph Neural Networks
+          </span>
+
+          <span class="pill">
+            Explainable AI
+          </span>
+
+          <span class="pill">
+            Human–AI Teaming
+          </span>
+
+          <span class="pill">
+            AI for Healthcare
+          </span>
+
+          <span class="pill">
+            Computational Social Science
+          </span>
+
         </div>
 
-      </div
+      </div>
 
+
+      <!-- =========================
+           RIGHT SIDE
+           ========================= -->
+
+      <aside class="hero-side">
+
+        <!-- PROFILE PHOTO -->
+
+        <img
+          class="profile-photo"
+          src="profile.jpg"
+          alt="Portrait of Vincenzo Marco De Luca"
+        >
+
+        <strong>
+          Researcher
+        </strong>
+
+        <p>
+          Information Engineering &amp;<br>
+          Computer Science
+        </p>
+
+        <div class="graph" aria-hidden="true">
+
+          <svg
+            viewBox="0 0 400 150"
+            preserveAspectRatio="none"
+          >
+
+            <line
+              x1="40"
+              y1="75"
+              x2="140"
+              y2="35"
+              stroke="#d9d6cf"
+              stroke-width="1"
+            />
+
+            <line
+              x1="140"
+              y1="35"
+              x2="250"
+              y2="80"
+              stroke="#d9d6cf"
+              stroke-width="1"
+            />
+
+            <line
+              x1="250"
+              y1="80"
+              x2="350"
+              y2="40"
+              stroke="#d9d6cf"
+              stroke-width="1"
+            />
+
+            <line
+              x1="140"
+              y1="35"
+              x2="190"
+              y2="125"
+              stroke="#d9d6cf"
+              stroke-width="1"
+            />
+
+            <line
+              x1="190"
+              y1="125"
+              x2="250"
+              y2="80"
+              stroke="#d9d6cf"
+              stroke-width="1"
+            />
+
+            <circle
+              cx="40"
+              cy="75"
+              r="7"
+              fill="#3f5148"
+            />
+
+            <circle
+              cx="140"
+              cy="35"
+              r="9"
+              fill="#b86b3d"
+            />
+
+            <circle
+              cx="250"
+              cy="80"
+              r="7"
+              fill="#3f5148"
+            />
+
+            <circle
+              cx="350"
+              cy="40"
+              r="6"
+              fill="#b86b3d"
+            />
+
+            <circle
+              cx="190"
+              cy="125"
+              r="6"
+              fill="#3f5148"
+            />
+
+          </svg>
+
+        </div>
+
+      </aside>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+         ========================= -->
+
+    <section>
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          About
+        </div>
+
+        <div class="text">
+
+          <h2>
+            Research at the intersection of AI, networks, and people.
+          </h2>
+
+          <p>
+            My work investigates how machine learning can be used
+            to understand complex relational systems and support
+            human decision-making.
+          </p>
+
+          <p>
+            I am particularly interested in graph-based learning,
+            explainability, computational social science,
+            healthcare applications, and human–AI collaboration.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         NEWS
+         ========================= -->
+
+    <section id="news">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          News
+        </div>
+
+        <div class="news">
+
+          <div class="news-item">
+
+            <div class="date">
+              2026
+            </div>
+
+            <div>
+
+              <div class="item-title">
+                New research project
+              </div>
+
+              <div class="item-note">
+                Working on graph-based models and human–AI collaboration.
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="news-item">
+
+            <div class="date">
+              2025
+            </div>
+
+            <div>
+
+              <div class="item-title">
+                PhD studies
+              </div>
+
+              <div class="item-note">
+                Started doctoral research in Information Engineering
+                and Computer Science at the University of Trento.
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESEARCH
+         ========================= -->
+
+    <section id="research">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          Research
+        </div>
+
+        <div>
+
+          <h2>
+            Research interests
+          </h2>
+
+          <div class="cols">
+
+            <ul class="list">
+
+              <li>
+                Graph Neural Networks
+              </li>
+
+              <li>
+                Explainable Artificial Intelligence
+              </li>
+
+              <li>
+                Human–AI Teaming
+              </li>
+
+            </ul>
+
+            <ul class="list">
+
+              <li>
+                AI for Healthcare
+              </li>
+
+              <li>
+                Computational Social Science
+              </li>
+
+              <li>
+                Machine Learning
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PUBLICATIONS
+         ========================= -->
+
+    <section id="publications">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          Publications
+        </div>
+
+        <div>
+
+          <h2>
+            Selected publications
+          </h2>
+
+          <div class="pub">
+
+            <div class="pub-title">
+              Your publication title goes here
+            </div>
+
+            <div class="pub-authors">
+              Vincenzo Marco De Luca et al.
+            </div>
+
+            <div class="pub-venue">
+              Conference / Journal, 2026
+            </div>
+
+            <div class="pub-tags">
+
+              <a href="#" class="tag">
+                Paper
+              </a>
+
+              <a href="#" class="tag">
+                Code
+              </a>
+
+              <a href="#" class="tag">
+                Project
+              </a>
+
+            </div>
+
+          </div>
+
+
+          <div class="pub">
+
+            <div class="pub-title">
+              Another publication title
+            </div>
+
+            <div class="pub-authors">
+              Vincenzo Marco De Luca et al.
+            </div>
+
+            <div class="pub-venue">
+              Conference / Journal, 2025
+            </div>
+
+            <div class="pub-tags">
+
+              <a href="#" class="tag">
+                Paper
+              </a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE
+         ========================= -->
+
+    <section id="experience">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          Experience
+        </div>
+
+        <div class="timeline">
+
+          <div class="entry">
+
+            <div class="when">
+              2025 — Present
+            </div>
+
+            <div>
+
+              <div class="where">
+                University of Trento
+              </div>
+
+              <div class="sub">
+                PhD Student · Information Engineering
+                and Computer Science
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="entry">
+
+            <div class="when">
+              Previous
+            </div>
+
+            <div>
+
+              <div class="where">
+                Your previous institution
+              </div>
+
+              <div class="sub">
+                Your previous role
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TEACHING
+         ========================= -->
+
+    <section id="teaching">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          Teaching
+        </div>
+
+        <div class="text">
+
+          <h2>
+            Teaching &amp; mentoring
+          </h2>
+
+          <p>
+            Information about courses, teaching activities,
+            tutorials, supervision, and mentoring can be listed here.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+         ========================= -->
+
+    <section id="contact">
+
+      <div class="section-grid">
+
+        <div class="kicker">
+          Contact
+        </div>
+
+        <div class="contact">
+
+          <div class="contact-card">
+
+            <h3>
+              Get in touch
+            </h3>
+
+            <p>
+              For research collaborations, academic questions,
+              or other professional inquiries.
+            </p>
+
+            <p>
+              <a href="mailto:your.email@example.com">
+                your.email@example.com
+              </a>
+            </p>
+
+          </div>
+
+
+          <div class="contact-card">
+
+            <h3>
+              Online
+            </h3>
+
+            <p>
+              <a href="#">
+                Google Scholar
+              </a>
+            </p>
+
+            <p>
+              <a href="#">
+                ORCID
+              </a>
+            </p>
+
+            <p>
+              <a href="#">
+                GitHub
+              </a>
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+
+  <footer>
+
+    <div>
+      © 2026 Vincenzo Marco De Luca
+    </div>
+
+    <div class="smallcaps">
+      AI · Graphs · Human–AI
+    </div>
+
+  </footer>
+
+</div>
+
+</body>
+</html>
