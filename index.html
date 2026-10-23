@@ -1,2438 +1,997 @@
+
 <!doctype html>
-
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta
-name="description"
-content="Vincenzo Marco De Luca — PhD student at the University of Trento researching Graph Neural Networks, Human-AI Teaming, Computational Social Science, Explainable AI and AI for Healthcare."
-
->
-
   <meta name="author" content="Vincenzo Marco De Luca">
+  <meta name="description" content="Vincenzo Marco De Luca is a PhD student at the University of Trento researching Graph Neural Networks, Human-AI Teaming, Explainable AI, Computational Social Science and AI for Healthcare.">
 
+  <meta name="theme-color" content="#f5f4ef">
   <title>Vincenzo Marco De Luca — AI Researcher</title>
 
   <style>
-
     :root {
       --bg: #f5f4ef;
-      --paper: #ffffff;
-      --ink: #171716;
-      --muted: #68665f;
-      --line: #d9d6ce;
+      --paper: #fff;
+      --ink: #20221f;
+      --muted: #666961;
+      --line: #deddd4;
       --accent: #34483f;
       --accent-light: #e8ece9;
-      --orange: #b5683e;
-
+      --orange: #a65e37;
       --max: 1160px;
-
       --serif: Georgia, "Times New Roman", serif;
       --sans: Inter, ui-sans-serif, system-ui, -apple-system,
-              BlinkMacSystemFont, "Segoe UI", sans-serif;
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
-
-    /* ================================
-       RESET
-       ================================ */
-
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 25px;
     }
 
     body {
       margin: 0;
       background: var(--bg);
       color: var(--ink);
-
       font-family: var(--sans);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    img {
-      max-width: 100%;
+    a { color: var(--accent); }
+    a:hover { color: var(--orange); }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
     }
 
-    a {
-      color: inherit;
-    }
+    img { max-width: 100%; }
 
     .wrap {
       width: min(calc(100% - 44px), var(--max));
       margin: 0 auto;
     }
 
-
-    /* ================================
-       HEADER
-       ================================ */
-
-    header {
-      padding-top: 30px;
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 15px;
+      z-index: 100;
+      padding: 10px 15px;
+      background: var(--paper);
     }
+
+    .skip-link:focus { top: 15px; }
+
+    header { padding-top: 28px; }
 
     .topbar {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-
-      gap: 30px;
+      gap: 24px;
     }
 
     .name {
+      color: var(--ink);
       font-family: var(--serif);
-
       font-size: 25px;
       font-weight: 600;
-
-      letter-spacing: -0.025em;
+      letter-spacing: -.025em;
+      text-decoration: none;
     }
 
     .affiliation {
-      text-align: right;
-
       color: var(--muted);
-
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
+      text-align: right;
     }
 
-
-    /* ================================
-       NAVIGATION
-       ================================ */
-
     nav {
-      margin-top: 30px;
-
       display: flex;
-      gap: 25px;
-
+      flex-wrap: wrap;
+      gap: 0 23px;
+      margin-top: 26px;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
-
-      overflow-x: auto;
-      white-space: nowrap;
     }
 
     nav a {
-      padding: 13px 0;
-
-      color: #45433f;
-
-      font-size: 13px;
-
+      padding: 12px 0;
+      color: #454740;
+      font-size: 12px;
       text-decoration: none;
-
-      transition: color .2s ease;
     }
 
-    nav a:hover {
-      color: var(--orange);
-    }
-
-
-    /* ================================
-       HERO
-       ================================ */
+    nav a:hover { color: var(--orange); }
 
     .hero {
-      min-height: 650px;
-
-      padding: 92px 0 90px;
-
       display: grid;
-
-      grid-template-columns: 1.35fr .65fr;
-
-      gap: 80px;
-
+      grid-template-columns: minmax(0, 1.5fr) minmax(230px, .5fr);
+      gap: 65px;
       align-items: center;
+      padding: 90px 0;
     }
 
-    .eyebrow {
-      margin-bottom: 22px;
-
+    .eyebrow,
+    .section-label,
+    .small-label {
       color: var(--muted);
-
-      font-size: 12px;
-
+      font-size: 11px;
       text-transform: uppercase;
-
-      letter-spacing: .16em;
+      letter-spacing: .15em;
     }
+
+    .eyebrow { margin-bottom: 20px; }
 
     h1 {
-      margin: 0 0 32px;
-
       max-width: 820px;
-
+      margin: 0 0 27px;
       font-family: var(--serif);
-
-      font-size: clamp(52px, 7vw, 92px);
-
+      font-size: clamp(48px, 7vw, 88px);
       font-weight: 500;
-
-      line-height: .95;
-
+      line-height: .99;
       letter-spacing: -.06em;
     }
 
     .hero-description {
-      max-width: 750px;
-
-      color: #343431;
-
-      font-size: 20px;
-
-      line-height: 1.6;
+      max-width: 720px;
+      color: #393b35;
+      font-size: 18px;
+      line-height: 1.75;
     }
 
-    .hero-description strong {
-      color: var(--accent);
-    }
-
-
-    /* ================================
-       TAGS
-       ================================ */
+    .hero-description strong { color: var(--accent); }
 
     .tags {
       display: flex;
-
       flex-wrap: wrap;
-
-      gap: 9px;
-
-      margin-top: 30px;
+      gap: 8px;
+      margin-top: 25px;
     }
 
     .tag {
-      display: inline-block;
-
-      padding: 7px 11px;
-
+      padding: 6px 10px;
       border: 1px solid var(--line);
-
       border-radius: 999px;
-
-      color: #55534e;
-
-      font-size: 12px;
-
-      background: rgba(255,255,255,.35);
+      background: rgb(255 255 255 / 35%);
+      color: #55574f;
+      font-size: 11px;
     }
 
-
-    /* ================================
-       PROFILE
-       ================================ */
-
     .profile-panel {
-      padding-left: 28px;
-
+      padding-left: 25px;
       border-left: 2px solid var(--accent);
     }
 
     .profile-photo {
-      width: 210px;
-      height: 210px;
-
-      object-fit: cover;
-
       display: block;
-
-      border-radius: 50%;
-
+      width: 180px;
+      height: 180px;
+      margin-bottom: 22px;
       border: 1px solid var(--line);
-
-      margin-bottom: 27px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--accent-light);
     }
 
     .profile-role {
-      font-size: 12px;
-
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .13em;
       text-transform: uppercase;
-
-      letter-spacing: .14em;
-
-      font-weight: 600;
     }
 
     .profile-panel p {
-      margin: 8px 0 0;
-
       color: var(--muted);
-
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .profile-links {
       display: flex;
-
       flex-wrap: wrap;
-
-      gap: 14px;
-
-      margin-top: 20px;
+      gap: 12px;
+      margin-top: 17px;
     }
 
     .profile-links a {
       font-size: 12px;
-
       text-decoration: none;
-
       border-bottom: 1px solid #aaa;
     }
 
-
-    /* ================================
-       SECTION
-       ================================ */
-
     section {
-      padding: 80px 0;
-
+      padding: 66px 0;
       border-top: 1px solid var(--line);
     }
 
     .section-grid {
       display: grid;
-
-      grid-template-columns: 190px 1fr;
-
-      gap: 70px;
+      grid-template-columns: 175px minmax(0, 1fr);
+      gap: 60px;
     }
 
     .section-label {
       position: sticky;
-
-      top: 25px;
-
+      top: 20px;
       height: max-content;
-
-      color: var(--muted);
-
-      font-size: 11px;
-
-      text-transform: uppercase;
-
-      letter-spacing: .17em;
     }
 
     h2 {
-      margin: 0 0 30px;
-
+      margin: 0 0 25px;
       font-family: var(--serif);
-
-      font-size: clamp(38px, 5vw, 56px);
-
+      font-size: clamp(34px, 4.5vw, 52px);
       font-weight: 500;
-
-      line-height: 1;
-
+      line-height: 1.08;
       letter-spacing: -.045em;
     }
 
     h3 {
-      margin: 0;
-
+      margin: 0 0 8px;
       font-family: var(--serif);
-
-      font-size: 25px;
-
+      font-size: 23px;
       font-weight: 500;
-
-      line-height: 1.2;
+      line-height: 1.3;
     }
 
-    .text {
-      max-width: 820px;
+    h4 {
+      margin: 0 0 8px;
+      font-size: 14px;
     }
 
-    .text p {
-      margin: 0 0 18px;
-    }
-
-
-    /* ================================
-       RESEARCH CARDS
-       ================================ */
+    p { margin: 0 0 16px; }
+    .text { max-width: 820px; }
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+    .subheading { margin: 30px 0 12px; }
 
     .research-grid {
       display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 1px;
-
-      background: var(--line);
-
+      overflow: hidden;
       border: 1px solid var(--line);
+      background: var(--line);
     }
 
     .research-card {
-      min-height: 190px;
-
-      padding: 28px;
-
+      min-height: 170px;
+      padding: 24px;
       background: var(--paper);
     }
 
     .research-number {
-      margin-bottom: 20px;
-
+      margin-bottom: 16px;
       color: var(--orange);
-
-      font-size: 12px;
-
+      font-size: 11px;
       letter-spacing: .12em;
     }
 
-    .research-card h3 {
-      margin-bottom: 12px;
-    }
-
-    .research-card p {
-      margin: 0;
-
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-
-    /* ================================
-       HIGHLIGHT
-       ================================ */
+    .research-card h3 { font-size: 22px; }
+    .research-card p { margin: 0; color: var(--muted); font-size: 13px; }
 
     .highlight {
-      margin-bottom: 45px;
-
-      padding: 28px 30px;
-
+      margin-bottom: 25px;
+      padding: 26px;
       background: var(--accent);
-
       color: white;
     }
 
-    .highlight-label {
-      margin-bottom: 8px;
+    .highlight .small-label { color: #e0e8e2; }
+    .highlight h3 { margin-top: 8px; color: white; }
+    .highlight p { margin-bottom: 0; color: #e6e9e5; font-size: 14px; }
 
-      font-size: 11px;
-
-      text-transform: uppercase;
-
-      letter-spacing: .14em;
-
-      opacity: .7;
-    }
-
-    .highlight h3 {
-      margin-bottom: 8px;
-
-      color: white;
-    }
-
-    .highlight p {
-      margin: 0;
-
-      max-width: 750px;
-
-      color: rgba(255,255,255,.78);
-
-      font-size: 14px;
-    }
-
-
-    /* ================================
-       PUBLICATIONS
-       ================================ */
-
-    .publication {
-      padding: 27px 0;
-
+    .publication,
+    .education-card,
+    .timeline-item,
+    .talk,
+    .list-item {
+      padding: 21px 0;
       border-top: 1px solid var(--line);
+      break-inside: avoid;
     }
 
-    .publication:first-child {
+    .publication:first-of-type,
+    .education-card:first-of-type,
+    .timeline-item:first-child,
+    .talk:first-child,
+    .list-item:first-child {
       border-top: 0;
     }
 
-    .publication-year {
+    .publication-year,
+    .education-date {
       margin-bottom: 7px;
-
       color: var(--orange);
-
       font-size: 11px;
-
+      letter-spacing: .1em;
       text-transform: uppercase;
-
-      letter-spacing: .13em;
     }
 
     .publication-title {
-      max-width: 800px;
-
+      max-width: 820px;
       font-family: var(--serif);
-
-      font-size: 23px;
-
-      line-height: 1.35;
+      font-size: 21px;
+      line-height: 1.4;
     }
 
-    .publication-authors {
-      margin-top: 7px;
-
-      font-size: 13px;
-    }
-
-    .publication-authors strong {
-      font-weight: 600;
-    }
-
+    .publication-authors,
     .publication-venue {
-      margin-top: 5px;
-
-      color: var(--muted);
-
-      font-size: 13px;
+      margin-top: 6px;
+      font-size: 12px;
     }
+
+    .publication-venue { color: var(--muted); }
 
     .publication-links {
       display: flex;
-
       flex-wrap: wrap;
-
-      gap: 8px;
-
-      margin-top: 12px;
+      gap: 7px;
+      margin-top: 10px;
     }
 
     .publication-links a {
-      padding: 4px 8px;
-
+      padding: 3px 8px;
       border: 1px solid var(--line);
-
-      color: var(--muted);
-
       font-size: 11px;
-
       text-decoration: none;
     }
 
-    .publication-links a:hover {
-      color: var(--orange);
-
-      border-color: var(--orange);
+    .education-degree {
+      font-family: var(--serif);
+      font-size: 22px;
+      line-height: 1.35;
     }
 
+    .education-university {
+      margin-top: 5px;
+      font-size: 13px;
+      font-weight: 600;
+    }
 
-    /* ================================
-       TIMELINE
-       ================================ */
-
-    .timeline {
-      display: grid;
+    .education-detail,
+    .timeline-description {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
     .timeline-item {
       display: grid;
-
-      grid-template-columns: 155px 1fr;
-
-      gap: 35px;
-
-      padding: 27px 0;
-
-      border-top: 1px solid var(--line);
-    }
-
-    .timeline-item:first-child {
-      border-top: 0;
+      grid-template-columns: 125px minmax(0, 1fr);
+      gap: 25px;
     }
 
     .timeline-date {
       color: var(--muted);
-
       font-size: 12px;
-
-      line-height: 1.5;
     }
 
-    .timeline-title {
-      font-weight: 600;
-
-      font-size: 16px;
-    }
-
-    .timeline-place {
-      margin-top: 3px;
-
-      font-family: var(--serif);
-
-      font-size: 20px;
-    }
-
-    .timeline-description {
-      margin-top: 7px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-
-    /* ================================
-       EDUCATION
-       ================================ */
-
-    .education-card {
-      padding: 27px 0;
-
-      border-top: 1px solid var(--line);
-    }
-
-    .education-card:first-child {
-      border-top: 0;
-    }
-
-    .education-date {
-      color: var(--orange);
-
-      font-size: 11px;
-
-      text-transform: uppercase;
-
-      letter-spacing: .12em;
-    }
-
-    .education-degree {
-      margin-top: 7px;
-
-      font-family: var(--serif);
-
-      font-size: 24px;
-
-      line-height: 1.3;
-    }
-
-    .education-university {
-      margin-top: 4px;
-
-      font-size: 14px;
-
-      font-weight: 600;
-    }
-
-    .education-detail {
-      margin-top: 9px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-
-    /* ================================
-       TALKS
-       ================================ */
+    .timeline-title { font-weight: 650; font-size: 14px; }
+    .timeline-place { margin-top: 3px; font-family: var(--serif); font-size: 19px; }
 
     .talk {
       display: grid;
-
-      grid-template-columns: 80px 1fr;
-
-      gap: 20px;
-
-      padding: 19px 0;
-
-      border-top: 1px solid var(--line);
+      grid-template-columns: 65px minmax(0, 1fr);
+      gap: 18px;
     }
 
-    .talk:first-child {
-      border-top: 0;
-    }
-
-    .talk-year {
-      color: var(--muted);
-
-      font-size: 12px;
-    }
-
-    .talk-title {
-      font-weight: 600;
-
-      font-size: 15px;
-    }
-
-    .talk-event {
-      margin-top: 3px;
-
-      color: var(--muted);
-
-      font-size: 13px;
-    }
+    .talk-year { color: var(--muted); font-size: 12px; }
+    .talk-title { font-size: 14px; font-weight: 650; }
+    .talk-event { margin-top: 5px; color: var(--muted); font-size: 12px; }
 
     .award {
       display: inline-block;
-
-      margin-top: 7px;
-
+      margin-top: 8px;
       padding: 3px 7px;
-
       background: var(--accent-light);
-
       color: var(--accent);
-
       font-size: 10px;
-
+      letter-spacing: .06em;
       text-transform: uppercase;
-
-      letter-spacing: .08em;
     }
-
-
-    /* ================================
-       TEACHING / SERVICE
-       ================================ */
 
     .simple-list {
       margin: 0;
-
       padding: 0;
-
       list-style: none;
     }
 
     .simple-list li {
-      padding: 15px 0;
-
+      padding: 12px 0;
       border-top: 1px solid var(--line);
-
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    .simple-list li:first-child {
-      border-top: 0;
-    }
-
-    .simple-list strong {
-      font-weight: 600;
-    }
+    .simple-list li:first-child { border-top: 0; }
 
     .two-columns {
       display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 55px;
-    }
-
-
-    /* ================================
-       CONTACT
-       ================================ */
-
-    .contact-grid {
-      display: grid;
-
-      grid-template-columns: 1.2fr .8fr;
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 35px;
     }
 
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 20px;
+    }
+
     .contact-card {
-      padding: 30px;
-
-      background: var(--paper);
-
+      padding: 25px;
       border: 1px solid var(--line);
+      background: var(--paper);
     }
 
-    .contact-card h3 {
-      margin-bottom: 14px;
-    }
+    .contact-card p { color: var(--muted); font-size: 13px; }
+    .contact-card a { overflow-wrap: anywhere; }
 
-    .contact-card p {
-      color: var(--muted);
-
-      font-size: 14px;
-    }
-
-    .contact-card a {
+    .button-link {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 9px 14px;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
       text-decoration: none;
-
-      border-bottom: 1px solid #aaa;
     }
 
-    .contact-card a:hover {
-      color: var(--orange);
-    }
-
-
-    /* ================================
-       FOOTER
-       ================================ */
+    .button-link:hover { background: #26372f; color: white; }
 
     footer {
-      padding: 45px 0 65px;
-
       display: flex;
-
       justify-content: space-between;
-
       gap: 20px;
-
+      padding: 35px 0 45px;
       color: var(--muted);
-
-      font-size: 12px;
+      font-size: 11px;
     }
-
-
-    /* ================================
-       MOBILE
-       ================================ */
 
     @media (max-width: 800px) {
-
-      .wrap {
-        width: min(calc(100% - 30px), var(--max));
-      }
-
-      .topbar {
-        flex-direction: column;
-      }
-
-      .affiliation {
-        text-align: left;
-      }
-
-      .hero {
-        min-height: auto;
-
-        padding: 65px 0;
-
-        grid-template-columns: 1fr;
-
-        gap: 50px;
-      }
-
-      .profile-panel {
-        border-left: 0;
-
-        border-top: 2px solid var(--accent);
-
-        padding: 25px 0 0;
-      }
-
-      .profile-photo {
-        width: 170px;
-        height: 170px;
-      }
-
-      .section-grid {
-        grid-template-columns: 1fr;
-
-        gap: 25px;
-      }
-
-      .section-label {
-        position: static;
-      }
-
-      .research-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-
-        gap: 7px;
-      }
-
-      .two-columns,
-      .contact-grid {
-        grid-template-columns: 1fr;
-
-        gap: 30px;
-      }
-
-      .talk {
-        grid-template-columns: 60px 1fr;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-
+      .wrap { width: min(calc(100% - 30px), var(--max)); }
+      .topbar { flex-direction: column; gap: 8px; }
+      .affiliation { text-align: left; }
+      nav { gap: 0 17px; }
+      .hero { grid-template-columns: 1fr; gap: 35px; padding: 60px 0; }
+      .profile-panel { padding: 24px 0 0; border-left: 0; border-top: 2px solid var(--accent); }
+      .profile-photo { width: 150px; height: 150px; }
+      section { padding: 48px 0; }
+      .section-grid { grid-template-columns: 1fr; gap: 20px; }
+      .section-label { position: static; }
+      .timeline-item { grid-template-columns: 1fr; gap: 5px; }
     }
 
-  </style>
+    @media (max-width: 520px) {
+      .research-grid,
+      .two-columns,
+      .contact-grid { grid-template-columns: 1fr; }
+      h1 { font-size: clamp(43px, 14vw, 65px); }
+      .publication-title { font-size: 19px; }
+      footer { flex-direction: column; }
+    }
 
+    @media print {
+      @page { size: A4; margin: 15mm; }
+
+      body {
+        background: white;
+        font-size: 10pt;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .wrap { width: 100%; }
+      nav, .skip-link, .no-print { display: none !important; }
+      .hero { min-height: 0; padding: 28px 0; gap: 25px; }
+      h1 { font-size: 35pt; }
+      section { padding: 24px 0; }
+      .section-grid { grid-template-columns: 115px minmax(0, 1fr); gap: 25px; }
+      .section-label { position: static; }
+      h2 { font-size: 24pt; }
+      h3 { font-size: 16pt; }
+      .research-card { min-height: 0; padding: 12px; }
+      a { color: inherit; text-decoration: none; }
+      .profile-photo { width: 100px; height: 100px; }
+      .publication, .education-card, .timeline-item, .talk { break-inside: avoid; }
+      footer { padding-bottom: 0; }
+    }
+  </style>
 </head>
 
 <body>
-
-<div class="wrap">
-
-  <!-- ==================================================
-       HEADER
-       ================================================== -->
-
-  <header>
-
-```
-<div class="topbar">
-
-  <div class="name">
-    Vincenzo Marco De Luca
-  </div>
-
-  <div class="affiliation">
-    PhD Student · University of Trento<br>
-    Department of Information Engineering and Computer Science
-  </div>
-
-</div>
-
-
-<nav aria-label="Main navigation">
-
-  <a href="#about">About</a>
-  <a href="#research">Research</a>
-  <a href="#publications">Publications</a>
-  <a href="#talks">Talks</a>
-  <a href="#education">Education</a>
-  <a href="#teaching">Teaching</a>
-  <a href="#service">Service</a>
-  <a href="#contact">Contact</a>
-
-</nav>
-```
-
-  </header>
-
-  <main>
-
-```
-<!-- ==================================================
-     HERO
-     ================================================== -->
-
-<section class="hero" id="about">
-
-  <div>
-
-    <div class="eyebrow">
-      Artificial Intelligence · Graph Learning · Human–AI Teaming
-    </div>
-
-    <h1>
-      AI for people,<br>
-      teams, and<br>
-      complex systems.
-    </h1>
-
-    <div class="hero-description">
-
-      I am a <strong>PhD student in Information Engineering
-      and Computer Science</strong> at the University of Trento.
-
-      My research focuses on
-      <strong>Graph Neural Networks</strong>,
-      <strong>Computational Social Science</strong>,
-      <strong>Explainable AI</strong>, and
-      <strong>AI for Healthcare</strong>,
-      with a particular interest in
-      <strong>human–AI teaming and surgical team modeling</strong>.
-
-    </div>
-
-
-    <div class="tags">
-
-      <span class="tag">Graph Neural Networks</span>
-
-      <span class="tag">Human–AI Teaming</span>
-
-      <span class="tag">Explainable AI</span>
-
-      <span class="tag">AI for Healthcare</span>
-
-      <span class="tag">Computational Social Science</span>
-
-    </div>
-
-  </div>
-
-
-  <aside class="profile-panel">
-
-    <!--
-      PUT YOUR PHOTO IN THE SAME FOLDER AS THIS FILE
-      AND NAME IT:
-
-      profile.jpg
-    -->
-
-    <img
-      class="profile-photo"
-      src="profile.jpg"
-      alt="Portrait of Vincenzo Marco De Luca"
-    >
-
-
-    <div class="profile-role">
-      PhD Student
-    </div>
-
-    <p>
-      University of Trento<br>
-      Information Engineering and Computer Science
-    </p>
-
-
-    <div class="profile-links">
-
-      <a
-        href="https://github.com/VincenzoMarcoDeLuca"
-        target="_blank"
-        rel="noopener"
-      >
-        GitHub
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/vincenzo-marco-de-luca/"
-        target="_blank"
-        rel="noopener"
-      >
-        LinkedIn
-      </a>
-
-      <a href="mailto:mynameismarco96@gmail.com">
-        Email
-      </a>
-
-    </div>
-
-  </aside>
-
-</section>
-
-
-
-<!-- ==================================================
-     ABOUT
-     ================================================== -->
-
-<section>
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      About
-    </div>
-
-
-    <div class="text">
-
-      <h2>
-        Research at the intersection of AI, networks and people.
-      </h2>
-
-      <p>
-        I am currently pursuing a PhD in Information Engineering
-        and Computer Science at the University of Trento.
-        My doctoral research is supported by a scholarship on
-        <strong>AI coaching for human-machine teaming</strong>.
-      </p>
-
-      <p>
-        My work explores how machine learning and graph-based
-        representations can model complex interactions between
-        people, agents and environments, while producing
-        interpretable and actionable insights.
-      </p>
-
-      <p>
-        A central application of my research is the modeling of
-        <strong>surgical teams</strong>, where multimodal observations,
-        temporal interactions and counterfactual reasoning can be
-        combined to better understand teamwork and support
-        human decision-making.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     RESEARCH
-     ================================================== -->
-
-<section id="research">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Research
-    </div>
-
-
-    <div>
-
-      <h2>
-        Research interests
-      </h2>
-
-
-      <div class="research-grid">
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            01
-          </div>
-
-          <h3>
-            Graph Neural Networks
-          </h3>
-
-          <p>
-            Representation learning on structured and relational
-            data, with a focus on temporal, higher-order and
-            interaction graphs.
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="wrap">
+    <header>
+      <div class="topbar">
+        <a class="name" href="#top">Vincenzo Marco De Luca</a>
+        <div class="affiliation">
+          PhD Student · University of Trento<br>
+          Department of Information Engineering and Computer Science
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#education">Education</a>
+        <a href="#talks">Talks & Awards</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#service">Service</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div>
+          <div class="eyebrow">Artificial Intelligence · Graph Learning · Human–AI Teaming</div>
+          <h1>AI for people, teams, and complex systems.</h1>
+
+          <p class="hero-description">
+            I am a <strong>PhD student in Information Engineering and Computer Science</strong>
+            at the University of Trento. My research focuses on
+            <strong>Graph Neural Networks</strong>, <strong>Human–AI Teaming</strong>,
+            <strong>Computational Social Science</strong>, <strong>Explainable AI</strong>,
+            and <strong>AI for Healthcare</strong>.
           </p>
 
-        </article>
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            02
+          <div class="tags" aria-label="Research topics">
+            <span class="tag">Graph Neural Networks</span>
+            <span class="tag">Human–AI Teaming</span>
+            <span class="tag">Explainable AI</span>
+            <span class="tag">AI for Healthcare</span>
+            <span class="tag">Computational Social Science</span>
           </div>
 
-          <h3>
-            Human–AI Teaming
-          </h3>
+          <p><a class="button-link" href="#publications">Explore my research</a></p>
+        </div>
 
-          <p>
-            AI systems designed to support collaboration between
-            humans and intelligent agents through actionable and
-            interpretable recommendations.
-          </p>
+        <aside class="profile-panel" aria-label="Profile and links">
+          <img class="profile-photo" src="profile.jpg" alt="Portrait of Vincenzo Marco De Luca">
+          <div class="profile-role">PhD Student</div>
+          <p>University of Trento<br>Information Engineering and Computer Science</p>
 
-        </article>
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            03
+          <div class="profile-links">
+            <a href="https://github.com/VincenzoMarcoDeLuca" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/vincenzo-marco-de-luca/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="mailto:mynameismarco96@gmail.com">Email</a>
           </div>
+        </aside>
+      </section>
 
-          <h3>
-            Surgical Team Modeling
-          </h3>
-
-          <p>
-            Multimodal and time-expanded graph representations
-            for understanding dynamics, interactions and teamwork
-            in operating rooms.
-          </p>
-
-        </article>
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            04
+      <section id="about">
+        <div class="section-grid">
+          <div class="section-label">About</div>
+          <div class="text">
+            <h2>Research at the intersection of AI, networks and people.</h2>
+            <p>
+              I am pursuing a PhD in Information Engineering and Computer Science at the
+              University of Trento. My doctoral scholarship concerns
+              <strong>AI coaching for human-machine teaming</strong>.
+            </p>
+            <p>
+              My research explores how machine learning and graph-based representations
+              can model complex interactions between people, agents and environments,
+              while producing interpretable and actionable insights.
+            </p>
+            <p>
+              One application is the modeling of surgical teams, where multimodal
+              observations, temporal interactions and counterfactual reasoning can help
+              understand teamwork and support human decision-making.
+            </p>
           </div>
-
-          <h3>
-            Explainable AI
-          </h3>
-
-          <p>
-            Methods for improving the interpretability,
-            reliability and actionability of graph-based
-            machine learning models.
-          </p>
-
-        </article>
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            05
-          </div>
-
-          <h3>
-            Computational Social Science
-          </h3>
-
-          <p>
-            Computational approaches to understanding social
-            interactions, group behavior and relational dynamics.
-          </p>
-
-        </article>
-
-
-        <article class="research-card">
-
-          <div class="research-number">
-            06
-          </div>
-
-          <h3>
-            AI for Healthcare
-          </h3>
-
-          <p>
-            Machine learning methods applied to biomedical and
-            healthcare problems, including drug-target interaction
-            prediction and clinical teamwork.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     PUBLICATIONS
-     ================================================== -->
-
-<section id="publications">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Publications
-    </div>
-
-
-    <div>
-
-      <h2>
-        Selected publications
-      </h2>
-
-
-      <div class="highlight">
-
-        <div class="highlight-label">
-          Current research
-        </div>
-
-        <h3>
-          Modeling surgical teams with time-expanded graphs
-        </h3>
-
-        <p>
-          My current research investigates how temporal,
-          relational and multimodal representations can be used
-          to model surgical team dynamics and generate
-          interpretable, actionable suggestions.
-        </p>
-
-      </div>
-
-
-      <!-- 2026 -->
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2026
-        </div>
-
-        <div class="publication-title">
-          Towards Actionable Surgical Team Dynamics:
-          from Teamwork to Counterfactual Annotations
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Antonio Longa,
-          Andrea Passerini
-        </div>
-
-        <div class="publication-venue">
-          ACM Conference on Human-AI Complementarity and Alignment
-          (ACM HCOMP 2026)
-        </div>
-
-      </article>
-
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2026
-        </div>
-
-        <div class="publication-title">
-          From Multimodal Observation to Interpretable Suggestions:
-          Counterfactual Time-Expanded Relational Modeling of
-          Surgical Teams
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Antonio Longa,
-          Giovanna Varni,
-          Andrea Passerini
-        </div>
-
-        <div class="publication-venue">
-          ACM Multimedia (ACM MM 2026)
-        </div>
-
-      </article>
-
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2026
-        </div>
-
-        <div class="publication-title">
-          Overcoming Shortcut Learning in Graph Neural Networks
-          through Active Explanation Guidance
-        </div>
-
-        <div class="publication-authors">
-          Taraneh Younesian,
-          Steve Azzolin,
-          Antonio Longa,
-          Francesco Ferrini,
-          <strong>Vincenzo Marco De Luca</strong>,
-          Stefano Teso
-        </div>
-
-        <div class="publication-venue">
-          ECML PKDD 2026 — Machine Learning on Graphs
-        </div>
-
-      </article>
-
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2026
-        </div>
-
-        <div class="publication-title">
-          Actionable Real-Time Modeling of Surgical Team Dynamics
-          via Time-Expanded Interaction Graphs
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Antonio Longa,
-          Giovanna Varni,
-          Andrea Passerini
-        </div>
-
-        <div class="publication-venue">
-          International Conference on Human Hybrid-Artificial
-          Intelligence (HHAI 2026)
-        </div>
-
-      </article>
-
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2026
-        </div>
-
-        <div class="publication-title">
-          Boosting Team-Modeling through Tempo-Relational Representation
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Giovanna Varni,
-          Andrea Passerini
-        </div>
-
-        <div class="publication-venue">
-          Cognitive Computation — Springer Nature
-        </div>
-
-      </article>
-
-
-      <!-- 2024 -->
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2024
-        </div>
-
-        <div class="publication-title">
-          XAI-Drop: Don't Use What You Cannot Explain
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Antonio Longa,
-          Pietro Liò,
-          Andrea Passerini
-        </div>
-
-        <div class="publication-venue">
-          Proceedings of the Third Learning on Graphs Conference
-          — PMLR
-        </div>
-
-      </article>
-
-
-      <!-- 2021 -->
-
-      <article class="publication">
-
-        <div class="publication-year">
-          2021
-        </div>
-
-        <div class="publication-title">
-          Chemical Language Transformer for Drug-Target Binding Affinity
-        </div>
-
-        <div class="publication-authors">
-          <strong>Vincenzo Marco De Luca</strong>,
-          Antonino Staiano,
-          Alessio Ferone
-        </div>
-
-        <div class="publication-venue">
-          17th International Conference on Computational Intelligence
-          Methods for Bioinformatics and Biostatistics (CIBB 2021)
-        </div>
-
-      </article>
-
-
-      <!-- Under submission -->
-
-      <div style="margin-top: 45px;">
-
-        <h3 style="margin-bottom: 15px;">
-          Under submission
-        </h3>
-
-        <article class="publication">
-
-          <div class="publication-year">
-            2026
-          </div>
-
-          <div class="publication-title">
-            Higher-Order Modeling for Uncertainty-Aware
-            Counterfactual Trajectory
-          </div>
-
-          <div class="publication-authors">
-            <strong>Vincenzo Marco De Luca</strong>,
-            Antonio Longa,
-            Giovanna Varni,
-            Andrea Passerini
-          </div>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     TALKS
-     ================================================== -->
-
-<section id="talks">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Talks &amp; Posters
-    </div>
-
-
-    <div>
-
-      <h2>
-        Talks, posters &amp; awards
-      </h2>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2026
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            Towards Socially-Aware Modeling of Surgical Teams
-            via Time-Expanded Graphs
-          </div>
-
-          <div class="talk-event">
-            Conference on Complex Systems (CCS 2026)
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2026
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            Towards Actionable Surgical Team Dynamics:
-            from Teamwork to Counterfactual Annotations
-          </div>
-
-          <div class="talk-event">
-            ACM HCOMP 2026 — Oral &amp; Poster
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2026
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            From Multimodal Observation to Interpretable Suggestions
-          </div>
-
-          <div class="talk-event">
-            ACM Multimedia 2026 — Poster
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2026
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            Time-Expanded Graph Learning for Multi-Agent
-            Temporal Interaction Modeling with Counterfactual Interventions
-          </div>
-
-          <div class="talk-event">
-            Learning on Graphs — Pisa Meetup 2026
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2025
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            Tempo-Relational Neural Networks for Advancing
-            Team Modeling in the Operating Room
-          </div>
-
-          <div class="talk-event">
-            Max Planck Institute for Intelligent Systems
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2024
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            XAI-Drop: Don't Use What You Cannot Explain
-          </div>
-
-          <div class="talk-event">
-            Learning on Graphs — Siena Meetup
-          </div>
-
-          <span class="award">
-            Best Poster Award
-          </span>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2023
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            XAI-based Regularizer for Graph Neural Networks
-          </div>
-
-          <div class="talk-event">
-            Learning on Graphs — Trento Meetup
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="talk">
-
-        <div class="talk-year">
-          2021
-        </div>
-
-        <div>
-
-          <div class="talk-title">
-            Chemical Language Transformer for Drug-Target
-            Binding Affinity
-          </div>
-
-          <div class="talk-event">
-            CIBB 2021 — Oral Presentation
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     EDUCATION
-     ================================================== -->
-
-<section id="education">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Education
-    </div>
-
-
-    <div>
-
-      <h2>
-        Education
-      </h2>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          November 2023 — Present
-        </div>
-
-        <div class="education-degree">
-          PhD in Information Engineering and Computer Science
-        </div>
-
-        <div class="education-university">
-          University of Trento · Department of Information Engineering
-          and Computer Science
-        </div>
-
-        <div class="education-detail">
-
-          Scholarship:
-          <strong>AI coaching for human-machine teaming</strong>.
-
-          Research topics:
-          Graph Neural Networks, Computational Social Science,
-          AI for Healthcare.
-
-          Advisor:
-          Andrea Passerini.
-
-          Co-advisors:
-          Marco Zenati and Giovanna Varni.
-
-        </div>
-
-      </article>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          July 2025 — November 2025
-        </div>
-
-        <div class="education-degree">
-          Visiting PhD Student
-        </div>
-
-        <div class="education-university">
-          Max Planck Institute for Intelligent Systems —
-          Haptic Intelligence Department
-        </div>
-
-        <div class="education-detail">
-          Supervisor: Katherine J. Kuchenbecker.
-        </div>
-
-      </article>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          July 2024
-        </div>
-
-        <div class="education-degree">
-          Summer School — OxML: Representation Learning
-        </div>
-
-        <div class="education-university">
-          University of Oxford
-        </div>
-
-      </article>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          July 2024
-        </div>
-
-        <div class="education-degree">
-          Summer School — London on Geometry and Machine Learning
-        </div>
-
-        <div class="education-university">
-          Imperial College London
-        </div>
-
-      </article>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          September 2020 — July 2023
-        </div>
-
-        <div class="education-degree">
-          Master's Degree in Artificial Intelligence Systems —
-          Computer Engineering
-        </div>
-
-        <div class="education-university">
-          University of Trento · Department of Information Engineering
-          and Computer Science
         </div>
-
-        <div class="education-detail">
-          Final grade: <strong>110/110 cum laude</strong>.
-
-          Thesis:
-          <strong>
-            Regularize Learning in Graph Neural Networks
-            through Explainability
-          </strong>.
-        </div>
-
-      </article>
-
-
-      <article class="education-card">
-
-        <div class="education-date">
-          September 2016 — September 2020
-        </div>
-
-        <div class="education-degree">
-          Bachelor's Degree in Computer Science
-        </div>
-
-        <div class="education-university">
-          University of Naples Parthenope · Department of Science
-          and Technology
-        </div>
-
-        <div class="education-detail">
-          Final grade: <strong>110/110 cum laude</strong>.
-
-          Thesis:
-          <strong>
-            CLT-DTA: Chemical Language Transformer for
-            Drug Target Binding Affinity
-          </strong>.
-        </div>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     TEACHING
-     ================================================== -->
-
-<section id="teaching">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Teaching
-    </div>
-
-
-    <div>
-
-      <h2>
-        Teaching &amp; tutoring
-      </h2>
-
-
-      <ul class="simple-list">
-
-        <li>
-          <strong>2024 — Present</strong><br>
-          Teaching Assistant — Introduction to Web Programming,
-          Bachelor in Computer Science, University of Trento.
-        </li>
-
-        <li>
-          <strong>2024–2025</strong><br>
-          Tutor — Scientific Programming,
-          Master in Data Science, University of Trento.
-        </li>
-
-        <li>
-          <strong>2024–2025</strong><br>
-          Tutor — Scientific Programming,
-          Master in Quantitative and Computational Biology,
-          University of Trento.
-        </li>
-
-        <li>
-          <strong>2024–2025</strong><br>
-          Tutor — Computer Programming,
-          Bachelor in Information Engineering, University of Trento.
-        </li>
-
-        <li>
-          <strong>2022–2023</strong><br>
-          Teacher — Neural Networks,
-          Scientific High School Galileo Galilei, Trento.
-        </li>
-
-        <li>
-          <strong>2022–2023</strong><br>
-          Tutor — Computer Programming,
-          Bachelor in Information Engineering, University of Trento.
-        </li>
-
-        <li>
-          <strong>2022–2023</strong><br>
-          Teacher — Computer Programming,
-          I.T.E.T. Pilati, Cles.
-        </li>
-
-        <li>
-          <strong>2021–2024</strong><br>
-          Teacher — Computer Science for teachers,
-          Teacher Dojo and FabLab, Trento.
-        </li>
-
-        <li>
-          <strong>2021–2024</strong><br>
-          Private Computer Science Teacher — Superprof.
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     ACADEMIC SERVICE
-     ================================================== -->
-
-<section id="service">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Academic Service
-    </div>
-
-
-    <div>
-
-      <h2>
-        Academic service
-      </h2>
-
-
-      <div class="two-columns">
-
-
-        <div>
-
-          <h3 style="margin-bottom: 15px;">
-            Reviewing
-          </h3>
-
-          <ul class="simple-list">
-
-            <li>
-              Reviewer — LOG 2025
-            </li>
-
-            <li>
-              Reviewer — alt.CHI 2025
-            </li>
-
-            <li>
-              Reviewer — IUI 2025
-            </li>
-
-            <li>
-              Reviewer — IJCNN 2026
-            </li>
-
-            <li>
-              Reviewer — ACM MM 2026
-            </li>
-
-            <li>
-              Reviewer — IUI 2026
-            </li>
-
-          </ul>
-
-        </div>
-
-
-        <div>
-
-          <h3 style="margin-bottom: 15px;">
-            Committees &amp; organization
-          </h3>
-
-          <ul class="simple-list">
-
-            <li>
-              <strong>2024 — Present</strong><br>
-              Program Committee — ACM Conference on Intelligent
-              User Interfaces (IUI)
-            </li>
-
-            <li>
-              <strong>2025</strong><br>
-              Organizer Committee Member — London on Geometry
-              and Machine Learning (LOGML)
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     EXPERIENCE
-     ================================================== -->
-
-<section>
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Experience
-    </div>
-
-
-    <div>
-
-      <h2>
-        Research &amp; professional experience
-      </h2>
-
-
-      <div class="timeline">
-
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            2023
-          </div>
+      </section>
 
+      <section id="research">
+        <div class="section-grid">
+          <div class="section-label">Research</div>
           <div>
-
-            <div class="timeline-title">
-              Internship — Geometric Deep Learning Research
+            <h2>Research interests</h2>
+            <div class="research-grid">
+              <article class="research-card">
+                <div class="research-number">01</div>
+                <h3>Graph Neural Networks</h3>
+                <p>Representation learning on structured and relational data, including temporal and interaction graphs.</p>
+              </article>
+              <article class="research-card">
+                <div class="research-number">02</div>
+                <h3>Human–AI Teaming</h3>
+                <p>AI systems that support collaboration between humans and intelligent agents through interpretable recommendations.</p>
+              </article>
+              <article class="research-card">
+                <div class="research-number">03</div>
+                <h3>Surgical Team Modeling</h3>
+                <p>Multimodal and time-expanded graph representations for understanding teamwork and interactions in operating rooms.</p>
+              </article>
+              <article class="research-card">
+                <div class="research-number">04</div>
+                <h3>Explainable AI</h3>
+                <p>Methods to improve the interpretability, reliability and actionability of graph-based machine learning models.</p>
+              </article>
+              <article class="research-card">
+                <div class="research-number">05</div>
+                <h3>Computational Social Science</h3>
+                <p>Computational approaches to social interactions, group behavior and relational dynamics.</p>
+              </article>
+              <article class="research-card">
+                <div class="research-number">06</div>
+                <h3>AI for Healthcare</h3>
+                <p>Machine learning for biomedical problems, including drug-target interaction prediction and clinical teamwork.</p>
+              </article>
             </div>
-
-            <div class="timeline-place">
-              University of Trento
-            </div>
-
-            <div class="timeline-description">
-              Structured Machine Learning Lab ·
-              Prof. Andrea Passerini
-            </div>
-
           </div>
-
         </div>
+      </section>
 
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            2020
-          </div>
-
+      <section id="publications">
+        <div class="section-grid">
+          <div class="section-label">Publications</div>
           <div>
+            <h2>Research output</h2>
 
-            <div class="timeline-title">
-              Internship — Deep Learning for Bioinformatics
+            <div class="highlight">
+              <div class="small-label">Current research direction</div>
+              <h3>From team dynamics to actionable AI</h3>
+              <p>
+                My current work investigates how temporal, relational and multimodal
+                representations can model surgical team dynamics and support interpretable
+                counterfactual suggestions.
+              </p>
             </div>
 
-            <div class="timeline-place">
-              University of Naples Parthenope
-            </div>
+            <h3 class="subheading">2026</h3>
 
-            <div class="timeline-description">
-              High Performance Scientific Computing Smart-Lab ·
-              Prof. Antonino Staiano
-            </div>
+            <article class="publication">
+              <div class="publication-title">Towards Actionable Surgical Team Dynamics: from Teamwork to Counterfactual Annotations</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonio Longa, Andrea Passerini</div>
+              <div class="publication-venue">ACM Conference on Human-AI Complementarity and Alignment (ACM HCOMP 2026)</div>
+            </article>
 
+            <article class="publication">
+              <div class="publication-title">From Multimodal Observation to Interpretable Suggestions: Counterfactual Time-Expanded Relational Modeling of Surgical Teams</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonio Longa, Giovanna Varni, Andrea Passerini</div>
+              <div class="publication-venue">ACM Multimedia (ACM MM 2026)</div>
+            </article>
+
+            <article class="publication">
+              <div class="publication-title">Overcoming Shortcut Learning in Graph Neural Networks through Active Explanation Guidance</div>
+              <div class="publication-authors">Taraneh Younesian, Steve Azzolin, Antonio Longa, Francesco Ferrini, <strong>Vincenzo Marco De Luca</strong>, Stefano Teso</div>
+              <div class="publication-venue">ECML PKDD 2026 — Machine Learning on Graphs</div>
+            </article>
+
+            <article class="publication">
+              <div class="publication-title">Actionable Real-Time Modeling of Surgical Team Dynamics via Time-Expanded Interaction Graphs</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonio Longa, Giovanna Varni, Andrea Passerini</div>
+              <div class="publication-venue">International Conference on Human Hybrid-Artificial Intelligence (HHAI 2026)</div>
+            </article>
+
+            <article class="publication">
+              <div class="publication-title">Boosting Team-Modeling through Tempo-Relational Representation</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Giovanna Varni, Andrea Passerini</div>
+              <div class="publication-venue">Cognitive Computation — Springer Nature</div>
+            </article>
+
+            <h3 class="subheading">2024</h3>
+
+            <article class="publication">
+              <div class="publication-title">XAI-Drop: Don't Use What You Cannot Explain</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonio Longa, Pietro Liò, Andrea Passerini</div>
+              <div class="publication-venue">Proceedings of the Third Learning on Graphs Conference — PMLR</div>
+            </article>
+
+            <h3 class="subheading">2021</h3>
+
+            <article class="publication">
+              <div class="publication-title">Chemical Language Transformer for Drug-Target Binding Affinity</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonino Staiano, Alessio Ferone</div>
+              <div class="publication-venue">17th International Conference on Computational Intelligence Methods for Bioinformatics and Biostatistics (CIBB 2021)</div>
+            </article>
+
+            <h3 class="subheading">Under submission</h3>
+
+            <article class="publication">
+              <div class="publication-title">Higher-Order Modeling for Uncertainty-Aware Counterfactual Trajectory</div>
+              <div class="publication-authors"><strong>Vincenzo Marco De Luca</strong>, Antonio Longa, Giovanna Varni, Andrea Passerini</div>
+              <div class="publication-venue">Manuscript under submission — status and title to be verified.</div>
+            </article>
+
+            <p class="muted small">
+              Bibliographic metadata and publication status should be checked against
+              the final publisher or conference records before publication.
+            </p>
           </div>
-
         </div>
+      </section>
 
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            2019
-          </div>
-
+      <section id="education">
+        <div class="section-grid">
+          <div class="section-label">Education</div>
           <div>
+            <h2>Education & research training</h2>
 
-            <div class="timeline-title">
-              Venue Technology Manager
-            </div>
+            <article class="education-card">
+              <div class="education-date">November 2023 — Present</div>
+              <div class="education-degree">PhD in Information Engineering and Computer Science</div>
+              <div class="education-university">University of Trento · Department of Information Engineering and Computer Science</div>
+              <div class="education-detail">
+                Scholarship: AI coaching for human-machine teaming.<br>
+                Research topics: Graph Neural Networks, Computational Social Science and AI for Healthcare.<br>
+                Advisor: Andrea Passerini. Co-advisors: Marco Zenati and Giovanna Varni.
+              </div>
+            </article>
 
-            <div class="timeline-place">
-              Universiadi Napoli 2019
-            </div>
+            <article class="education-card">
+              <div class="education-date">July 2025 — November 2025</div>
+              <div class="education-degree">Visiting PhD Student</div>
+              <div class="education-university">Max Planck Institute for Intelligent Systems · Haptic Intelligence Department</div>
+              <div class="education-detail">Supervisor: Katherine J. Kuchenbecker.</div>
+            </article>
 
+            <article class="education-card">
+              <div class="education-date">July 2024</div>
+              <div class="education-degree">OxML Summer School — Representation Learning</div>
+              <div class="education-university">University of Oxford</div>
+            </article>
+
+            <article class="education-card">
+              <div class="education-date">July 2024</div>
+              <div class="education-degree">London on Geometry and Machine Learning Summer School</div>
+              <div class="education-university">Imperial College London</div>
+            </article>
+
+            <article class="education-card">
+              <div class="education-date">September 2020 — July 2023</div>
+              <div class="education-degree">Master's Degree in Artificial Intelligence Systems — Computer Engineering</div>
+              <div class="education-university">University of Trento · Department of Information Engineering and Computer Science</div>
+              <div class="education-detail">
+                Final grade: <strong>110/110 cum laude</strong>.<br>
+                Thesis: <strong>Regularize Learning in Graph Neural Networks through Explainability</strong>.
+              </div>
+            </article>
+
+            <article class="education-card">
+              <div class="education-date">September 2016 — September 2020</div>
+              <div class="education-degree">Bachelor's Degree in Computer Science</div>
+              <div class="education-university">University of Naples Parthenope · Department of Science and Technology</div>
+              <div class="education-detail">
+                Final grade: <strong>110/110 cum laude</strong>.<br>
+                Thesis: <strong>CLT-DTA: Chemical Language Transformer for Drug Target Binding Affinity</strong>.
+              </div>
+            </article>
           </div>
-
         </div>
+      </section>
 
-
-        <div class="timeline-item">
-
-          <div class="timeline-date">
-            2018–2019
-          </div>
-
+      <section id="talks">
+        <div class="section-grid">
+          <div class="section-label">Talks & Awards</div>
           <div>
+            <h2>Presentations, posters & recognition</h2>
 
-            <div class="timeline-title">
-              Software Developer
-            </div>
+            <article class="talk">
+              <div class="talk-year">2026</div>
+              <div><div class="talk-title">Towards Socially-Aware Modeling of Surgical Teams via Time-Expanded Graphs</div><div class="talk-event">Conference on Complex Systems (CCS 2026)</div></div>
+            </article>
 
-            <div class="timeline-place">
-              IoS Foundation — Napoli
-            </div>
+            <article class="talk">
+              <div class="talk-year">2026</div>
+              <div><div class="talk-title">Towards Actionable Surgical Team Dynamics: from Teamwork to Counterfactual Annotations</div><div class="talk-event">ACM HCOMP 2026 — Oral & Poster</div></div>
+            </article>
 
+            <article class="talk">
+              <div class="talk-year">2026</div>
+              <div><div class="talk-title">From Multimodal Observation to Interpretable Suggestions</div><div class="talk-event">ACM Multimedia 2026 — Poster</div></div>
+            </article>
+
+            <article class="talk">
+              <div class="talk-year">2026</div>
+              <div><div class="talk-title">Time-Expanded Graph Learning for Multi-Agent Temporal Interaction Modeling with Counterfactual Interventions</div><div class="talk-event">Learning on Graphs — Pisa Meetup 2026</div></div>
+            </article>
+
+            <article class="talk">
+              <div class="talk-year">2025</div>
+              <div><div class="talk-title">Tempo-Relational Neural Networks for Advancing Team Modeling in the Operating Room</div><div class="talk-event">Max Planck Institute for Intelligent Systems</div></div>
+            </article>
+
+            <article class="talk">
+              <div class="talk-year">2024</div>
+              <div>
+                <div class="talk-title">XAI-Drop: Don't Use What You Cannot Explain</div>
+                <div class="talk-event">Learning on Graphs — Siena Meetup</div>
+                <span class="award">Best Poster Award</span>
+              </div>
+            </article>
+
+            <article class="talk">
+              <div class="talk-year">2023</div>
+              <div><div class="talk-title">XAI-based Regularizer for Graph Neural Networks</div><div class="talk-event">Learning on Graphs — Trento Meetup</div></div>
+            </article>
+
+            <article class="talk">
+              <div class="talk-year">2021</div>
+              <div><div class="talk-title">Chemical Language Transformer for Drug-Target Binding Affinity</div><div class="talk-event">CIBB 2021 — Oral Presentation</div></div>
+            </article>
           </div>
-
         </div>
+      </section>
 
-      </div>
+      <section id="teaching">
+        <div class="section-grid">
+          <div class="section-label">Teaching</div>
+          <div>
+            <h2>Teaching & tutoring</h2>
+            <ul class="simple-list">
+              <li><strong>2024 — Present</strong><br>Teaching Assistant — Introduction to Web Programming, Bachelor's in Computer Science, University of Trento.</li>
+              <li><strong>2024–2025</strong><br>Tutor — Scientific Programming, Master's in Data Science, University of Trento.</li>
+              <li><strong>2024–2025</strong><br>Tutor — Scientific Programming, Master's in Quantitative and Computational Biology, University of Trento.</li>
+              <li><strong>2024–2025</strong><br>Tutor — Computer Programming, Bachelor's in Information Engineering, University of Trento.</li>
+              <li><strong>2022–2023</strong><br>Teacher — Neural Networks, Scientific High School Galileo Galilei, Trento.</li>
+              <li><strong>2022–2023</strong><br>Tutor — Computer Programming, Bachelor's in Information Engineering, University of Trento.</li>
+              <li><strong>2022–2023</strong><br>Teacher — Computer Programming, I.T.E.T. Pilati, Cles.</li>
+              <li><strong>2021–2024</strong><br>Teacher — Computer Science for teachers, Teacher Dojo and FabLab, Trento.</li>
+              <li><strong>2021–2024</strong><br>Private Computer Science Teacher — Superprof.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-    </div>
+      <section id="service">
+        <div class="section-grid">
+          <div class="section-label">Academic Service</div>
+          <div>
+            <h2>Service to the research community</h2>
+            <div class="two-columns">
+              <div>
+                <h3>Reviewing</h3>
+                <ul class="simple-list">
+                  <li>Reviewer — LOG 2025</li>
+                  <li>Reviewer — alt.CHI 2025</li>
+                  <li>Reviewer — IUI 2025</li>
+                  <li>Reviewer — IJCNN 2026</li>
+                  <li>Reviewer — ACM MM 2026</li>
+                  <li>Reviewer — IUI 2026</li>
+                </ul>
+              </div>
+              <div>
+                <h3>Committees & organization</h3>
+                <ul class="simple-list">
+                  <li><strong>2024 — Present</strong><br>Program Committee — ACM Conference on Intelligent User Interfaces (IUI).</li>
+                  <li><strong>2025</strong><br>Organizer Committee Member — London on Geometry and Machine Learning (LOGML).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
+      <section id="experience">
+        <div class="section-grid">
+          <div class="section-label">Experience</div>
+          <div>
+            <h2>Research & professional experience</h2>
+            <div class="timeline">
+              <article class="timeline-item">
+                <div class="timeline-date">2023</div>
+                <div>
+                  <div class="timeline-title">Internship — Geometric Deep Learning Research</div>
+                  <div class="timeline-place">University of Trento</div>
+                  <div class="timeline-description">Structured Machine Learning Lab · Prof. Andrea Passerini.</div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2020</div>
+                <div>
+                  <div class="timeline-title">Internship — Deep Learning for Bioinformatics</div>
+                  <div class="timeline-place">University of Naples Parthenope</div>
+                  <div class="timeline-description">High Performance Scientific Computing Smart-Lab · Prof. Antonino Staiano.</div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2019</div>
+                <div>
+                  <div class="timeline-title">Venue Technology Manager</div>
+                  <div class="timeline-place">Universiadi Napoli 2019</div>
+                </div>
+              </article>
+
+              <article class="timeline-item">
+                <div class="timeline-date">2018–2019</div>
+                <div>
+                  <div class="timeline-title">Software Developer</div>
+                  <div class="timeline-place">IoS Foundation — Napoli</div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-grid">
+          <div class="section-label">Skills & Languages</div>
+          <div>
+            <h2>Technical background</h2>
+            <div class="two-columns">
+              <ul class="simple-list">
+                <li>Machine Learning & Deep Learning</li>
+                <li>Graph Neural Networks</li>
+                <li>Explainable AI</li>
+                <li>Computer Vision</li>
+                <li>Natural Language Processing</li>
+                <li>Optimization</li>
+              </ul>
+              <ul class="simple-list">
+                <li>Logic & Planning</li>
+                <li>Knowledge Engineering</li>
+                <li>Quantum Computing</li>
+                <li>Software Engineering</li>
+                <li>Full-Stack Development</li>
+                <li>Computer Science Theory</li>
+              </ul>
+            </div>
+
+            <h3 class="subheading">Languages</h3>
+            <ul class="simple-list">
+              <li><strong>Italian</strong> — Native</li>
+              <li><strong>English</strong> — C1</li>
+              <li><strong>Spanish</strong> — B2</li>
+              <li><strong>French</strong> — B1</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-grid">
+          <div class="section-label">Contact</div>
+          <div>
+            <h2>Let's connect.</h2>
+            <div class="contact-grid">
+              <div class="contact-card">
+                <h3>Academic & research</h3>
+                <p>
+                  I welcome conversations about graph learning, human–AI teaming,
+                  explainable AI and interdisciplinary research collaborations.
+                </p>
+                <p><a href="mailto:mynameismarco96@gmail.com">mynameismarco96@gmail.com</a></p>
+              </div>
+              <div class="contact-card">
+                <h3>Online</h3>
+                <p><a href="https://github.com/VincenzoMarcoDeLuca" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+                <p><a href="https://www.linkedin.com/in/vincenzo-marco-de-luca/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+                <button class="button-link no-print" type="button" onclick="window.print()">Print / Save CV as PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year">2026</span> Vincenzo Marco De Luca</div>
+      <div>University of Trento · Artificial Intelligence Research</div>
+      <div><a href="#top">Back to top ↑</a></div>
+    </footer>
   </div>
 
-</section>
-
-
-
-<!-- ==================================================
-     SKILLS
-     ================================================== -->
-
-<section>
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Skills
-    </div>
-
-
-    <div>
-
-      <h2>
-        Technical background
-      </h2>
-
-
-      <div class="two-columns">
-
-        <ul class="simple-list">
-
-          <li>
-            Machine Learning &amp; Deep Learning
-          </li>
-
-          <li>
-            Graph Neural Networks
-          </li>
-
-          <li>
-            Explainable AI
-          </li>
-
-          <li>
-            Computer Vision
-          </li>
-
-          <li>
-            Natural Language Processing
-          </li>
-
-          <li>
-            Optimization
-          </li>
-
-        </ul>
-
-
-        <ul class="simple-list">
-
-          <li>
-            Logic &amp; Planning
-          </li>
-
-          <li>
-            Knowledge Engineering
-          </li>
-
-          <li>
-            Quantum Computing
-          </li>
-
-          <li>
-            Software Engineering
-          </li>
-
-          <li>
-            Full-Stack Development
-          </li>
-
-          <li>
-            Computer Science Theory
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     LANGUAGES
-     ================================================== -->
-
-<section>
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Languages
-    </div>
-
-
-    <div>
-
-      <h2>
-        Languages
-      </h2>
-
-
-      <div class="two-columns">
-
-        <div>
-
-          <h3>
-            Italian
-          </h3>
-
-          <p style="color: var(--muted);">
-            Native language
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <ul class="simple-list">
-
-            <li>
-              <strong>English</strong> — C1
-            </li>
-
-            <li>
-              <strong>Spanish</strong> — B2
-            </li>
-
-            <li>
-              <strong>French</strong> — B1
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     CONTACT
-     ================================================== -->
-
-<section id="contact">
-
-  <div class="section-grid">
-
-    <div class="section-label">
-      Contact
-    </div>
-
-
-    <div>
-
-      <h2>
-        Let's connect.
-      </h2>
-
-
-      <div class="contact-grid">
-
-
-        <div class="contact-card">
-
-          <h3>
-            Academic &amp; research
-          </h3>
-
-          <p>
-            I am interested in research collaborations,
-            discussions around graph learning and human–AI
-            teaming, and interdisciplinary projects.
-          </p>
-
-          <p>
-
-            <a href="mailto:mynameismarco96@gmail.com">
-              mynameismarco96@gmail.com
-            </a>
-
-          </p>
-
-        </div>
-
-
-        <div class="contact-card">
-
-          <h3>
-            Online
-          </h3>
-
-          <p>
-
-            <a
-              href="https://github.com/VincenzoMarcoDeLuca"
-              target="_blank"
-              rel="noopener"
-            >
-              GitHub
-            </a>
-
-          </p>
-
-          <p>
-
-            <a
-              href="https://www.linkedin.com/in/vincenzo-marco-de-luca/"
-              target="_blank"
-              rel="noopener"
-            >
-              LinkedIn
-            </a>
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-```
-
-  </main>
-
-  <!-- ==================================================
-       FOOTER
-       ================================================== -->
-
-  <footer>
-
-```
-<div>
-  © 2026 Vincenzo Marco De Luca
-</div>
-
-<div>
-  University of Trento · AI Research
-</div>
-```
-
-  </footer>
-
-</div>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
